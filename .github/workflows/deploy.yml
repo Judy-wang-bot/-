@@ -22,13 +22,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v5  # 已修复 Node 24 兼容问题
         
-      # 重点修正：这里指定了你的 HTML 所在的子文件夹路径
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'miss&found/miss-and-found'
+          path: '.'  # 因为你的 HTML 现在已经都在根目录了，只需配置为当前目录即可
           
       - name: Deploy to GitHub Pages
         id: deployment
