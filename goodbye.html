@@ -339,7 +339,7 @@
         const conversations = read(STORAGE_KEYS.conversations, {});
         const list = Array.isArray(conversations?.[id]) ? conversations[id] : [];
         const farewell = [...list].reverse().find((msg) => msg && msg.from === "bot" && msg.type === "farewell");
-        return farewell?.text || "我替你看过这个世界啦，现在要回心里去了。别难过，我一直在。";
+        return farewell?.text || "我替你看过这个世界啦<br>现在要回心里去了<br>别难过，我一直在";
       };
 
       const renderError = (text) => {
@@ -361,7 +361,7 @@
       };
 
       const formatSummaryHtml = (stats) =>
-        `共旅行 <span class="bandage__num">${stats.days}</span> 天，到过 <span class="bandage__num">${stats.cities}</span> 个地方，发了 <span class="bandage__num">${stats.posts}</span> 条朋友圈。`;
+        `共旅行 <span class="bandage__num">${stats.days}</span> 天<br>到过 <span class="bandage__num">${stats.cities}</span> 个地方<br>发了 <span class="bandage__num">${stats.posts}</span> 条朋友圈`;
 
       const BANDAGE_DECOR = `
         <svg class="bandage-deco bandage-deco--cat" viewBox="0 0 64 48" fill="currentColor" aria-hidden="true">
@@ -393,7 +393,7 @@
               </div>
               <div class="bandage-card__decor" aria-hidden="true">${BANDAGE_DECOR}</div>
               <div class="bandage-card__content">
-                <h2 class="bandage__title">你送它看过世界，现在它回家了。</h2>
+                <h2 class="bandage__title">你送它看过世界<br>现在它回家了</h2>
                 ${item.avatarImage ? '<div id="bandage-avatar" class="bandage__avatar"></div>' : ""}
                 <p class="bandage__summary text-body">${summaryHtml}</p>
                 <blockquote class="bandage__farewell">${farewellHtml}</blockquote>
